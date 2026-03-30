@@ -14,7 +14,8 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "validate": "pnpm lint && pnpm type-check && pnpm test",
-    "postinstall": "react-dsfr update-icons"
+    "postinstall": "react-dsfr update-icons",
+    "prepare": "husky"
   },
   "dependencies": {
     "@codegouvfr/react-dsfr": "^1.24.0",
@@ -32,6 +33,7 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
+    "husky": "^9.1.7",
     "prettier": "^3.4.0",
     "sass": "^1.98.0",
     "typescript": "^5.7.0",
