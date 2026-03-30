@@ -1,0 +1,33 @@
+id: constit
+nom: Deliberations du Conseil constitutionnel
+source: Conseil constitutionnel
+description: >
+  Decisions et deliberations du Conseil constitutionnel : controle
+  de constitutionnalite, QPC, contentieux electoral.
+licence: Licence Ouverte v2.0
+mise_a_jour: Mensuelle
+derniere_maj: "2026-03-10"
+volumes:
+  documents: 8000
+formats:
+  site_web:
+    statut: disponible
+    url: https://www.conseil-constitutionnel.fr
+    provenance: officielle
+    tutoriel: null
+  api:
+    statut: indisponible
+  parquet:
+    statut: indisponible
+  mcp:
+    statut: indisponible
+  cli:
+    statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: indisponible
+tags:
+  - juridique
+  - constitution
+  - qpc

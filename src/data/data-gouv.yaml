@@ -1,0 +1,45 @@
+id: data-gouv
+nom: Data.gouv.fr
+source: Direction interministerielle du numerique (DINUM)
+description: >
+  Plateforme nationale de donnees ouvertes. Catalogue de jeux de donnees
+  publics couvrant tous les domaines de l'action publique.
+licence: Licence Ouverte v2.0
+mise_a_jour: Continue
+derniere_maj: "2026-03-25"
+volumes:
+  documents: 45000
+formats:
+  site_web:
+    statut: disponible
+    url: https://www.data.gouv.fr
+    provenance: officielle
+    tutoriel: null
+  api:
+    statut: disponible
+    url: https://www.data.gouv.fr/api/1/
+    provenance: officielle
+    tutoriel: https://guides.data.gouv.fr/guide-data.gouv.fr/api
+  parquet:
+    statut: experimental
+    url: https://www.data.gouv.fr
+    provenance: officielle
+    tutoriel: null
+  mcp:
+    statut: disponible
+    url: donnees-ai-gouv/data-gouv
+    provenance: officielle
+    tutoriel: null
+  cli:
+    statut: indisponible
+  skill:
+    statut: disponible
+    url: "@skills-etat/datagouv"
+    provenance: officielle
+    tutoriel: null
+  albert_api:
+    statut: indisponible
+tags:
+  - donnees-ouvertes
+  - catalogue
+  - transverse

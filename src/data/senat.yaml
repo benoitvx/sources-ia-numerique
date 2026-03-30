@@ -1,0 +1,37 @@
+id: senat
+nom: Senat
+source: Senat
+description: >
+  Travaux parlementaires du Senat : rapports, debats en seance,
+  questions au gouvernement, commissions d'enquete.
+licence: Licence Ouverte v2.0
+mise_a_jour: Quotidienne
+derniere_maj: "2026-03-25"
+volumes:
+  documents: 30000
+formats:
+  site_web:
+    statut: disponible
+    url: https://www.senat.fr
+    provenance: officielle
+    tutoriel: null
+  api:
+    statut: disponible
+    url: https://data.senat.fr
+    provenance: officielle
+    tutoriel: null
+  parquet:
+    statut: indisponible
+  mcp:
+    statut: indisponible
+  cli:
+    statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: indisponible
+tags:
+  - parlement
+  - senat
+  - legislatif
+  - debats

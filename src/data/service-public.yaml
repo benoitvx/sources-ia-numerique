@@ -1,0 +1,36 @@
+id: service-public
+nom: Annuaire du Service Public
+source: Direction de l'information legale et administrative (DILA)
+description: >
+  Annuaire des services publics francais : coordonnees, horaires
+  et competences des administrations.
+licence: Licence Ouverte v2.0
+mise_a_jour: Hebdomadaire
+derniere_maj: "2026-03-20"
+volumes:
+  documents: 70000
+formats:
+  site_web:
+    statut: disponible
+    url: https://lannuaire.service-public.fr
+    provenance: officielle
+    tutoriel: null
+  api:
+    statut: disponible
+    url: https://api-lannuaire.service-public.fr
+    provenance: officielle
+    tutoriel: null
+  parquet:
+    statut: indisponible
+  mcp:
+    statut: indisponible
+  cli:
+    statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: indisponible
+tags:
+  - annuaire
+  - administrations
+  - service-public

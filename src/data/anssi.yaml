@@ -1,0 +1,36 @@
+id: anssi
+nom: ANSSI — Guides et recommandations de securite
+source: Agence nationale de la securite des systemes d'information (ANSSI)
+description: >
+  Guides, recommandations et alertes de securite de l'ANSSI pour la
+  protection des systemes d'information de l'Etat et des operateurs.
+licence: Licence Ouverte v2.0
+mise_a_jour: Mensuelle
+derniere_maj: "2026-03-15"
+volumes:
+  documents: 2000
+formats:
+  site_web:
+    statut: disponible
+    url: https://cyber.gouv.fr
+    provenance: officielle
+    tutoriel: null
+  api:
+    statut: indisponible
+  parquet:
+    statut: indisponible
+  mcp:
+    statut: indisponible
+  cli:
+    statut: indisponible
+  skill:
+    statut: disponible
+    url: "@skills-etat/securite-anssi"
+    provenance: officielle
+    tutoriel: null
+  albert_api:
+    statut: indisponible
+tags:
+  - securite
+  - cybersecurite
+  - ssi

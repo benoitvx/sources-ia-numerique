@@ -1,0 +1,39 @@
+id: dole
+nom: Dossiers legislatifs (DOLE)
+source: Direction de l'information legale et administrative (DILA)
+description: >
+  Dossiers legislatifs complets : projets et propositions de loi,
+  amendements, rapports et debats parlementaires.
+licence: Licence Ouverte v2.0
+mise_a_jour: Quotidienne
+derniere_maj: "2026-03-25"
+volumes:
+  documents: 25000
+formats:
+  site_web:
+    statut: disponible
+    url: https://legifrance.gouv.fr/dossierlegislatif
+    provenance: officielle
+    tutoriel: null
+  api:
+    statut: disponible
+    url: https://api.legifrance.gouv.fr
+    provenance: officielle
+    tutoriel: null
+  parquet:
+    statut: disponible
+    url: https://huggingface.co/datasets/AgentPublic/mediatech-dole
+    provenance: officielle
+    tutoriel: null
+  mcp:
+    statut: indisponible
+  cli:
+    statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: indisponible
+tags:
+  - juridique
+  - legislatif
+  - parlement

@@ -1,0 +1,39 @@
+{
+  "name": "ai-data-gouv-fr",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "validate": "pnpm lint && pnpm type-check && pnpm test",
+    "postinstall": "react-dsfr update-icons"
+  },
+  "dependencies": {
+    "@codegouvfr/react-dsfr": "^1.24.0",
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsafe": "^1.7.0",
+    "yaml": "^2.7.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "prettier": "^3.4.0",
+    "sass": "^1.98.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
