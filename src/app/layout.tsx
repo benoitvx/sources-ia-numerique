@@ -6,7 +6,6 @@ import { StartDsfrOnHydration } from '@codegouvfr/react-dsfr/next-app-router';
 import { Header } from '@/components/Header';
 import { Footer } from '@codegouvfr/react-dsfr/Footer';
 import Link from 'next/link';
-import '@codegouvfr/react-dsfr/dsfr/utility/icons/icons.main.min.css';
 
 declare module '@codegouvfr/react-dsfr/next-app-router' {
   interface RegisterLink {
@@ -36,6 +35,7 @@ export default function RootLayout({
       <head>
         <StartDsfrOnHydration />
         <DsfrHeadBase Link={Link} />
+        <link rel="stylesheet" href="/dsfr-icons.css" />
       </head>
       <body>
         <DsfrProviderBase

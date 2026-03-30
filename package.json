@@ -14,7 +14,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "validate": "pnpm lint && pnpm type-check && pnpm test",
-    "postinstall": "react-dsfr update-icons",
+    "postinstall": "react-dsfr update-icons && cp node_modules/@codegouvfr/react-dsfr/dsfr/utility/icons/icons.main.min.css public/dsfr-icons.css",
     "prepare": "husky"
   },
   "dependencies": {
