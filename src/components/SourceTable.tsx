@@ -14,10 +14,10 @@ const FORMAT_TOOLTIPS: Record<TableFormatKey, string> = {
     'Collection dans Albert API, la plateforme RAG souveraine de l\u2019État.',
   parquet:
     'Fichiers Parquet sur HuggingFace. Idéal pour le fine-tuning et la data science.',
-  mcp: 'Serveur MCP (Model Context Protocol). Connecte la source à un agent IA ou un assistant comme Claude.',
+  mcp: 'Serveur MCP (Model Context Protocol). Connecte la source à un agent IA ou un assistant.',
   cli: 'Interface en ligne de commande. Idéal pour le scripting et les pipelines d\u2019automatisation.',
   skill:
-    'Skill pour Claude Code ou un IDE IA. Accès aux données pendant le développement.',
+    'Skill pour un IDE IA. Accès aux données pendant le développement.',
 };
 
 function getStatusCell(
@@ -37,14 +37,12 @@ function getStatusCell(
       return <span title="En cours de développement">🚧</span>;
     case 'indisponible':
       return <span title="Non disponible">❌</span>;
-    case 'na':
-      return <span title="Non applicable pour cette source">N/A</span>;
   }
 }
 
 function formatHeader(key: TableFormatKey): React.ReactNode {
   return (
-    <span>
+    <span style={{ whiteSpace: 'nowrap' }}>
       {TABLE_FORMAT_LABELS[key]}{' '}
       <span
         className="fr-icon-question-line fr-icon--sm"
@@ -85,7 +83,6 @@ export function SourceTable({ sources }: { sources: Source[] }) {
         <li>☑️ Disponible — proposé par un tiers</li>
         <li>🚧 En cours de développement</li>
         <li>❌ Non disponible</li>
-        <li>N/A Non applicable</li>
       </ul>
       <div className={styles.table}>
         <Table headers={headers} data={data} />

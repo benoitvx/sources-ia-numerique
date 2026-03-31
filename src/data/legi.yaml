@@ -1,9 +1,10 @@
 id: legi
-nom: Legifrance — Codes et lois en vigueur
-source: Direction de l'information legale et administrative (DILA)
+nom: Légifrance — Codes et lois en vigueur
+source: Direction de l'information légale et administrative (DILA)
 description: >
-  Ensemble des codes et lois en vigueur de la Republique francaise,
-  nettoyes et structures pour exploitation IA.
+  Législation française consolidée : lois, codes, décrets, circulaires,
+  ordonnances, arrêtés ministériels depuis 1945. Tous les statuts
+  (en vigueur, modifié, abrogé, annulé, etc.).
 licence: Licence Ouverte v2.0
 mise_a_jour: Quotidienne
 derniere_maj: "2026-03-25"
@@ -17,24 +18,22 @@ formats:
     tutoriel: null
   api:
     statut: officiel
-    url: https://api.legifrance.gouv.fr
-    tutoriel: https://developer.aife.economie.gouv.fr/
+    url: https://www.data.gouv.fr/dataservices/legifrance
+    tutoriel: null
   parquet:
     statut: officiel
-    url: https://huggingface.co/datasets/AgentPublic/mediatech-legi
+    url: https://huggingface.co/datasets/AgentPublic/legi
     tutoriel: null
   mcp:
-    statut: officiel
-    url: donnees-ai-gouv/legi
-    tutoriel: null
+    statut: wip
   cli:
-    statut: na
-  skill:
-    statut: officiel
-    url: "@skills-etat/legi"
-    tutoriel: null
-  albert_api:
     statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: officiel
+    url: https://albert.api.gouv.fr
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
 tags:
   - juridique
   - lois

@@ -47,7 +47,6 @@ export const StatusEnum = z.enum([
   'tiers',
   'wip',
   'indisponible',
-  'na',
 ]);
 export type Status = z.infer<typeof StatusEnum>;
 
@@ -76,16 +75,11 @@ const IndisponibleFormatSchema = z.object({
   tutoriel: z.string().url().nullable().optional(),
 });
 
-const NaFormatSchema = z.object({
-  statut: z.literal('na'),
-});
-
 export const FormatEntrySchema = z.discriminatedUnion('statut', [
   OfficielFormatSchema,
   TiersFormatSchema,
   WipFormatSchema,
   IndisponibleFormatSchema,
-  NaFormatSchema,
 ]);
 export type FormatEntry = z.infer<typeof FormatEntrySchema>;
 

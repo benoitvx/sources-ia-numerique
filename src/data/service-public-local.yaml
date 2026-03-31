@@ -1,0 +1,40 @@
+id: service-public-local
+nom: Annuaire du Service Public — Administrations locales
+source: Direction de l'information légale et administrative (DILA)
+description: >
+  Annuaire des administrations locales françaises (mairies, préfectures,
+  etc.). Coordonnées, missions, responsables, horaires d'ouverture et
+  liens hiérarchiques des entités publiques locales.
+licence: Licence Ouverte v2.0
+mise_a_jour: Hebdomadaire
+derniere_maj: "2026-03-20"
+volumes:
+  documents: 70000
+formats:
+  site_web:
+    statut: officiel
+    url: https://lannuaire.service-public.fr
+    tutoriel: null
+  api:
+    statut: officiel
+    url: https://www.data.gouv.fr/dataservices/api-annuaire-de-ladministration-et-des-services-publics
+    tutoriel: null
+  parquet:
+    statut: officiel
+    url: https://huggingface.co/datasets/AgentPublic/local-administrations-directory
+    tutoriel: null
+  mcp:
+    statut: indisponible
+  cli:
+    statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: officiel
+    url: https://albert.api.gouv.fr
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
+tags:
+  - annuaire
+  - administrations
+  - service-public
+  - local

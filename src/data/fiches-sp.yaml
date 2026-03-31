@@ -1,9 +1,10 @@
 id: fiches-sp
 nom: Fiches pratiques service-public.fr
-source: Direction de l'information legale et administrative (DILA)
+source: Direction de l'information légale et administrative (DILA)
 description: >
-  Fiches pratiques a destination des particuliers et des professionnels,
-  expliquant les demarches administratives et les droits.
+  Fiches pratiques du site service-public.fr à destination des particuliers
+  et des professionnels. Informations sur les démarches administratives
+  couvrant de nombreux thèmes (famille, scolarité, travail, formation, etc.).
 licence: Licence Ouverte v2.0
 mise_a_jour: Quotidienne
 derniere_maj: "2026-03-25"
@@ -13,28 +14,24 @@ volumes:
 formats:
   site_web:
     statut: officiel
-    url: https://www.service-public.fr
+    url: https://service-public.fr
     tutoriel: null
   api:
-    statut: officiel
-    url: https://api.service-public.fr
-    tutoriel: null
+    statut: indisponible
   parquet:
     statut: officiel
-    url: https://huggingface.co/datasets/AgentPublic/mediatech-fiches-sp
+    url: https://huggingface.co/datasets/AgentPublic/service-public
     tutoriel: null
   mcp:
-    statut: officiel
-    url: donnees-ai-gouv/fiches-sp
-    tutoriel: null
+    statut: indisponible
   cli:
-    statut: na
+    statut: indisponible
   skill:
     statut: indisponible
   albert_api:
     statut: officiel
     url: https://albert.api.gouv.fr
-    tutoriel: null
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
 tags:
   - demarches
   - service-public

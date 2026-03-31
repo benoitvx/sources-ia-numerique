@@ -1,9 +1,10 @@
 id: cnil
-nom: CNIL — Deliberations et guides
-source: Commission nationale de l'informatique et des libertes (CNIL)
+nom: CNIL
+source: Commission Nationale de l'Informatique et des Libertés (CNIL)
 description: >
-  Deliberations, guides et recommandations de la CNIL en matiere
-  de protection des donnees personnelles et de regulation de l'IA.
+  Délibérations et décisions officielles de la CNIL : avis,
+  recommandations, normes simplifiées, autorisations générales et
+  décisions formelles en matière de protection des données.
 licence: Licence Ouverte v2.0
 mise_a_jour: Mensuelle
 derniere_maj: "2026-03-15"
@@ -17,15 +18,19 @@ formats:
   api:
     statut: indisponible
   parquet:
-    statut: indisponible
+    statut: officiel
+    url: https://huggingface.co/datasets/AgentPublic/cnil
+    tutoriel: null
   mcp:
     statut: indisponible
   cli:
-    statut: na
+    statut: indisponible
   skill:
     statut: indisponible
   albert_api:
-    statut: indisponible
+    statut: officiel
+    url: https://albert.api.gouv.fr
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
 tags:
   - donnees-personnelles
   - rgpd
