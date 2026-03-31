@@ -2,8 +2,10 @@ import { Card } from '@codegouvfr/react-dsfr/Card';
 import { Badge } from '@codegouvfr/react-dsfr/Badge';
 import { FORMAT_KEYS, FORMAT_LABELS, type Source } from '@/lib/types';
 
+const DISPLAYED_FORMATS = FORMAT_KEYS.filter((key) => key !== 'site_web');
+
 export function SourceCard({ source }: { source: Source }) {
-  const availableFormats = FORMAT_KEYS.filter(
+  const availableFormats = DISPLAYED_FORMATS.filter(
     (key) =>
       key in source.formats && source.formats[key]!.statut !== 'indisponible'
   );

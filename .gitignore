@@ -5,9 +5,11 @@ node_modules/
 
 # generated assets
 public/dsfr-icons.css
+public/dsfr/
 
 # next.js
 .next/
+.next-build/
 out/
 
 # production

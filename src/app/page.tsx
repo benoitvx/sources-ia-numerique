@@ -7,8 +7,6 @@ export default function HomePage() {
 
   return (
     <div className={fr.cx('fr-container', 'fr-my-4w')}>
-      <h1 className={fr.cx('fr-mb-2w')}>Sources de données</h1>
-
       <SourceFilter sources={sources} />
     </div>
   );
