@@ -24,6 +24,49 @@ Projet porté par le département IAE (Intelligence Artificielle dans l'État) d
 
 ---
 
+## Comportement attendu
+
+### Plan Mode
+
+Pour toute tâche non triviale (3+ étapes ou décision architecturale) :
+
+1. Écrire le plan dans `tasks/todo.md` avec des items cochables
+2. Valider le plan avant d'implémenter
+3. Marquer les items comme terminés au fur et à mesure
+4. Ajouter une section "résultat" à la fin de `tasks/todo.md`
+
+Si quelque chose déraille en cours de route : **STOP** et replanifier avant de continuer.
+
+### Gestion des tâches (`tasks/`)
+
+```
+tasks/
+├── todo.md      # Plan en cours : items cochables, résultat final
+└── lessons.md   # Patterns d'erreurs rencontrés sur ce projet
+```
+
+`tasks/todo.md` est réinitialisé à chaque nouvelle tâche. `tasks/lessons.md` est cumulatif.
+
+### Self-Improvement Loop
+
+Après toute correction de l'utilisateur :
+- Mettre à jour `tasks/lessons.md` avec le pattern d'erreur et la règle à retenir
+- Relire `tasks/lessons.md` en début de session pour éviter de reproduire les mêmes erreurs
+
+### Correction de bugs
+
+Face à un bug : corriger directement. Pointer les logs, erreurs et tests qui échouent — puis résoudre sans demander de guidage pas à pas.
+
+### Qualité du code
+
+Pour tout changement non trivial, se poser la question : **"Y a-t-il une solution plus élégante ?"**
+
+Si un fix semble hacky : *"Knowing everything I know now, implement the elegant solution."*
+
+Ne pas appliquer aux corrections simples et évidentes — pas d'over-engineering.
+
+---
+
 ## Architecture
 
 ### Site statique
@@ -45,8 +88,10 @@ src/
 ├── components/
 │   ├── Header.tsx               # Header DSFR avec bouton "Demander une source de données"
 │   ├── SourceCard.tsx           # Carte résumé d'une source (formats, statuts)
-│   ├── FormatBadge.tsx          # Badge statut format (✅/🚧/❌)
-│   └── FormatTable.tsx          # Tableau des formats d'une source
+│   ├── SourceTable.tsx          # Vue matrice : toutes les sources × 6 formats (hors site_web)
+│   ├── SourceFilter.tsx         # Filtres par format + bascule vue tableau/liste (client component)
+│   ├── FormatBadge.tsx          # Badge statut format (✅/☑️/🚧/❌/N/A)
+│   └── FormatTable.tsx          # Tableau des formats d'une source (fiche détail)
 ├── lib/
 │   ├── sources.ts               # Chargement et validation des fichiers YAML
 │   └── types.ts                 # Types TypeScript (Source, Format, Status, etc.)
@@ -98,44 +143,38 @@ id: legi
 nom: Légifrance — Codes et lois en vigueur
 source: Direction de l'information légale et administrative (DILA)
 description: >
-  Ensemble des codes et lois en vigueur de la République française,
-  nettoyés et structurés pour exploitation IA.
+  Législation française consolidée : lois, codes, décrets, circulaires,
+  ordonnances, arrêtés ministériels depuis 1945. Tous les statuts
+  (en vigueur, modifié, abrogé, annulé, etc.).
 licence: Licence Ouverte v2.0
 mise_a_jour: Quotidienne
-derniere_maj: 2026-03-25
+derniere_maj: "2026-03-25"
 volumes:
   documents: 95000
   chunks: 450000
 formats:
   site_web:
-    statut: disponible        # disponible | experimental | indisponible
+    statut: officiel          # officiel | tiers | wip | indisponible
     url: https://legifrance.gouv.fr
-    provenance: officielle    # officielle | validée
     tutoriel: null            # URL vers un tutoriel d'intégration (ou null)
   api:
-    statut: disponible
-    url: https://api.legifrance.gouv.fr
-    provenance: officielle
-    tutoriel: https://developer.aife.economie.gouv.fr/
+    statut: officiel
+    url: https://www.data.gouv.fr/dataservices/legifrance
+    tutoriel: null
   parquet:
-    statut: disponible
-    url: https://huggingface.co/datasets/AgentPublic/mediatech-legi
-    provenance: officielle
+    statut: officiel
+    url: https://huggingface.co/datasets/AgentPublic/legi
     tutoriel: null
   mcp:
-    statut: disponible
-    url: données-ai-gouv/legi
-    provenance: officielle
-    tutoriel: null
+    statut: wip
   cli:
     statut: indisponible
   skill:
-    statut: disponible
-    url: "@skills-etat/legi"
-    provenance: officielle
-    tutoriel: null
-  albert_api:
     statut: indisponible
+  albert_api:
+    statut: officiel
+    url: https://albert.api.gouv.fr
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
 tags:
   - juridique
   - lois
@@ -147,7 +186,7 @@ tags:
 
 1. Créer `src/data/{id}.yaml` en suivant le schéma ci-dessus
 2. Remplir les métadonnées et les formats disponibles
-3. Pour chaque format disponible, renseigner l'URL et la provenance
+3. Pour chaque format, choisir le bon statut (`officiel`, `tiers`, `wip`, `indisponible`, `na`) et remplir les champs requis
 4. Ajouter les URLs de tutoriels quand ils existent (liens externes)
 5. Lancer `pnpm test` pour valider le schéma
 6. Ouvrir une PR sur la branche `data/{id}`
@@ -168,16 +207,18 @@ Les tutoriels sont des **liens externes** — le site ne les héberge pas. Chaqu
 | Skill | `skill` | Assistants de code |
 | Collection Albert API | `albert_api` | RAG as a service, Assistant IA |
 
-### Provenance
+### Statuts (union discriminée)
 
-- **officielle** : produite et maintenue par l'administration responsable
-- **validée** : initiative tierce reconnue et référencée
+Le champ `statut` détermine la structure de chaque format via une union discriminée Zod :
 
-### Statuts
+| Statut | Emoji | Signification | Champs requis |
+|--------|-------|---------------|---------------|
+| `officiel` | ✅ | Produit par l'administration responsable | `url` (obligatoire) |
+| `tiers` | ☑️ | Initiative tierce reconnue et référencée | `url` + `tiers_label` (obligatoires) |
+| `wip` | 🚧 | En cours de développement | `url` (optionnel) |
+| `indisponible` | ❌ | Non disponible | `url` (optionnel) |
 
-- `disponible` → ✅
-- `experimental` → 🚧
-- `indisponible` → ❌
+Tous les statuts acceptent un champ optionnel `tutoriel` (URL ou null).
 
 ---
 
@@ -186,8 +227,10 @@ Les tutoriels sont des **liens externes** — le site ne les héberge pas. Chaqu
 ### `/` — Page d'accueil
 
 - Présentation courte du dispositif (pitch en 30 secondes)
-- Référentiel des sources de données directement accessible (filtres par type, format, provenance)
-- Chaque source affiche une carte avec les formats disponibles sous forme de badges
+- Référentiel des sources de données directement accessible
+- Filtres par format avec persistance dans l'URL (query params)
+- Deux modes de vue : **tableau** (matrice sources × formats) et **liste** (cartes individuelles)
+- Chaque source affiche les formats disponibles sous forme de badges
 
 ### `/sources/{id}` — Fiche source de données
 
@@ -273,8 +316,8 @@ describe('Source data compliance', () => {
     // data-gouv.yaml → id: data-gouv
   })
 
-  it('every available format must have a url and provenance', () => {
-    // Si statut = disponible ou experimental → url et provenance requis
+  it('every available format must have required fields per status', () => {
+    // officiel → url requis, tiers → url + tiers_label requis
   })
 
   it('every source must have at least one available format', () => {
@@ -341,20 +384,20 @@ Ref : https://cyber.gouv.fr/les-regles-de-securite
 
 ---
 
-## Sources de données initiales (12)
+## Sources de données (12)
 
 | ID | Nom |
 |----|-----|
 | `data-gouv` | Data.gouv |
 | `legi` | Légifrance |
-| `service-public` | Annuaire du Service Public |
+| `service-public-etat` | Annuaire du Service Public — Administrations de l'État |
+| `service-public-local` | Annuaire du Service Public — Administrations locales |
 | `cnil` | CNIL |
 | `dole` | Dossiers législatifs (DOLE) |
 | `fiches-sp` | Fiches pratiques service-public.fr |
 | `constit` | Délibérations du Conseil constitutionnel |
 | `travail-emploi` | Fiches Travail Emploi |
-| `senat` | Sénat |
-| `assemblee` | Assemblée Nationale |
+| `parlement` | Parlement (Assemblée nationale & Sénat) |
 | `anssi` | ANSSI |
 | `dsfr` | Design Système de l'État |
 
