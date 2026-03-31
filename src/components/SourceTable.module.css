@@ -1,0 +1,19 @@
+.table :global(tbody tr:hover) {
+  background-color: var(--background-contrast-grey);
+}
+
+.statusCell {
+  text-align: center;
+  cursor: default;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-mention-grey);
+}

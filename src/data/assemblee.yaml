@@ -11,21 +11,22 @@ volumes:
   documents: 50000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://www.assemblee-nationale.fr
-    provenance: officielle
     tutoriel: null
   api:
-    statut: disponible
+    statut: officiel
     url: https://data.assemblee-nationale.fr
-    provenance: officielle
     tutoriel: null
   parquet:
     statut: indisponible
   mcp:
-    statut: indisponible
+    statut: tiers
+    url: https://github.com/tricoteuses/assemblee-mcp
+    tiers_label: "Les Tricoteuses"
+    tutoriel: null
   cli:
-    statut: indisponible
+    statut: na
   skill:
     statut: indisponible
   albert_api:

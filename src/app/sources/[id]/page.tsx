@@ -11,12 +11,13 @@ export function generateStaticParams() {
   return sources.map((s) => ({ id: s.id }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
-}): Metadata {
-  const source = getSourceById(params.id);
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const source = getSourceById(id);
   if (!source) return { title: 'Source introuvable' };
   return {
     title: `${source.nom} — sources.ia.numerique.gouv.fr`,
@@ -24,8 +25,13 @@ export function generateMetadata({
   };
 }
 
-export default function SourcePage({ params }: { params: { id: string } }) {
-  const source = getSourceById(params.id);
+export default async function SourcePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const source = getSourceById(id);
   if (!source) notFound();
 
   return (

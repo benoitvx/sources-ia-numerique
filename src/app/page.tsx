@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { fr } from '@codegouvfr/react-dsfr';
 import { loadAllSources } from '@/lib/sources';
 import { SourceFilter } from '@/components/SourceFilter';
@@ -7,7 +8,9 @@ export default function HomePage() {
 
   return (
     <div className={fr.cx('fr-container', 'fr-my-4w')}>
-      <SourceFilter sources={sources} />
+      <Suspense>
+        <SourceFilter sources={sources} />
+      </Suspense>
     </div>
   );
 }

@@ -5,6 +5,10 @@ import { DsfrHeadBase } from '@codegouvfr/react-dsfr/next-app-router/DsfrHead';
 import { StartDsfrOnHydration } from '@codegouvfr/react-dsfr/next-app-router';
 import { Header } from '@/components/Header';
 import { Footer } from '@codegouvfr/react-dsfr/Footer';
+import {
+  Display,
+  headerFooterDisplayItem,
+} from '@codegouvfr/react-dsfr/Display';
 import Link from 'next/link';
 
 declare module '@codegouvfr/react-dsfr/next-app-router' {
@@ -61,7 +65,9 @@ export default function RootLayout({
               href: '/',
               title: 'Accueil - sources.ia.numerique.gouv.fr',
             }}
+            bottomItems={[headerFooterDisplayItem]}
           />
+          <Display />
         </DsfrProviderBase>
       </body>
     </html>

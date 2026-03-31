@@ -33,15 +33,17 @@ describe('Source data compliance', () => {
     }
   });
 
-  it('every available format must have a url and provenance', () => {
+  it('every available format must have a url', () => {
     const entries = loadYamlFiles();
     for (const { file, raw } of entries) {
       if (!raw.formats) continue;
       for (const [key, entry] of Object.entries(raw.formats)) {
         const format = entry as Record<string, unknown>;
-        if (format.statut === 'disponible' || format.statut === 'experimental') {
+        if (format.statut === 'officiel' || format.statut === 'tiers') {
           expect(format.url, `${file}: format ${key} is ${format.statut} but has no url`).toBeTruthy();
-          expect(format.provenance, `${file}: format ${key} is ${format.statut} but has no provenance`).toBeTruthy();
+        }
+        if (format.statut === 'tiers') {
+          expect(format.tiers_label, `${file}: format ${key} is tiers but has no tiers_label`).toBeTruthy();
         }
       }
     }
@@ -52,7 +54,7 @@ describe('Source data compliance', () => {
     for (const { file, raw } of entries) {
       const formats = Object.values(raw.formats || {}) as Array<Record<string, unknown>>;
       const hasAvailable = formats.some(
-        (f) => f.statut === 'disponible' || f.statut === 'experimental'
+        (f) => f.statut === 'officiel' || f.statut === 'tiers'
       );
       expect(hasAvailable, `${file}: no available format found`).toBe(true);
     }

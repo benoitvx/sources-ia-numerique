@@ -11,21 +11,19 @@ volumes:
   documents: 4000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://travail-emploi.gouv.fr
-    provenance: officielle
     tutoriel: null
   api:
     statut: indisponible
   parquet:
-    statut: disponible
+    statut: officiel
     url: https://huggingface.co/datasets/AgentPublic/mediatech-travail-emploi
-    provenance: officielle
     tutoriel: null
   mcp:
     statut: indisponible
   cli:
-    statut: indisponible
+    statut: na
   skill:
     statut: indisponible
   albert_api:
