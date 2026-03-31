@@ -6,6 +6,8 @@ node_modules/
 # generated assets
 public/dsfr-icons.css
 public/dsfr/
+public/llms.txt
+public/llms-full.txt
 
 # next.js
 .next/
