@@ -11,21 +11,22 @@ volumes:
   documents: 30000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://www.senat.fr
-    provenance: officielle
     tutoriel: null
   api:
-    statut: disponible
+    statut: officiel
     url: https://data.senat.fr
-    provenance: officielle
     tutoriel: null
   parquet:
     statut: indisponible
   mcp:
-    statut: indisponible
+    statut: tiers
+    url: https://github.com/tricoteuses/senat-mcp
+    tiers_label: "Les Tricoteuses"
+    tutoriel: null
   cli:
-    statut: indisponible
+    statut: na
   skill:
     statut: indisponible
   albert_api:

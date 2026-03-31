@@ -22,33 +22,70 @@ export const FORMAT_LABELS: Record<FormatKey, string> = {
   albert_api: 'Collection Albert API',
 };
 
+export const TABLE_FORMAT_COLUMNS = [
+  'api',
+  'albert_api',
+  'parquet',
+  'mcp',
+  'cli',
+  'skill',
+] as const;
+
+export type TableFormatKey = (typeof TABLE_FORMAT_COLUMNS)[number];
+
+export const TABLE_FORMAT_LABELS: Record<TableFormatKey, string> = {
+  api: 'API',
+  albert_api: 'RAG',
+  parquet: 'Parquet',
+  mcp: 'MCP',
+  cli: 'CLI',
+  skill: 'Skill',
+};
+
 export const StatusEnum = z.enum([
-  'disponible',
-  'experimental',
+  'officiel',
+  'tiers',
+  'wip',
   'indisponible',
+  'na',
 ]);
 export type Status = z.infer<typeof StatusEnum>;
 
-export const ProvenanceEnum = z.enum(['officielle', 'validee']);
-export type Provenance = z.infer<typeof ProvenanceEnum>;
-
-const AvailableFormatSchema = z.object({
-  statut: z.enum(['disponible', 'experimental']),
+const OfficielFormatSchema = z.object({
+  statut: z.literal('officiel'),
   url: z.string(),
-  provenance: ProvenanceEnum,
   tutoriel: z.string().url().nullable().optional(),
 });
 
-const UnavailableFormatSchema = z.object({
+const TiersFormatSchema = z.object({
+  statut: z.literal('tiers'),
+  url: z.string(),
+  tiers_label: z.string(),
+  tutoriel: z.string().url().nullable().optional(),
+});
+
+const WipFormatSchema = z.object({
+  statut: z.literal('wip'),
+  url: z.string().optional(),
+  tutoriel: z.string().url().nullable().optional(),
+});
+
+const IndisponibleFormatSchema = z.object({
   statut: z.literal('indisponible'),
   url: z.string().optional(),
-  provenance: ProvenanceEnum.optional(),
   tutoriel: z.string().url().nullable().optional(),
+});
+
+const NaFormatSchema = z.object({
+  statut: z.literal('na'),
 });
 
 export const FormatEntrySchema = z.discriminatedUnion('statut', [
-  AvailableFormatSchema,
-  UnavailableFormatSchema,
+  OfficielFormatSchema,
+  TiersFormatSchema,
+  WipFormatSchema,
+  IndisponibleFormatSchema,
+  NaFormatSchema,
 ]);
 export type FormatEntry = z.infer<typeof FormatEntrySchema>;
 

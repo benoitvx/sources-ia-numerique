@@ -11,21 +11,19 @@ volumes:
   documents: 70000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://lannuaire.service-public.fr
-    provenance: officielle
     tutoriel: null
   api:
-    statut: disponible
+    statut: officiel
     url: https://api-lannuaire.service-public.fr
-    provenance: officielle
     tutoriel: null
   parquet:
     statut: indisponible
   mcp:
     statut: indisponible
   cli:
-    statut: indisponible
+    statut: na
   skill:
     statut: indisponible
   albert_api:

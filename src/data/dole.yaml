@@ -11,24 +11,21 @@ volumes:
   documents: 25000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://legifrance.gouv.fr/dossierlegislatif
-    provenance: officielle
     tutoriel: null
   api:
-    statut: disponible
+    statut: officiel
     url: https://api.legifrance.gouv.fr
-    provenance: officielle
     tutoriel: null
   parquet:
-    statut: disponible
+    statut: officiel
     url: https://huggingface.co/datasets/AgentPublic/mediatech-dole
-    provenance: officielle
     tutoriel: null
   mcp:
     statut: indisponible
   cli:
-    statut: indisponible
+    statut: na
   skill:
     statut: indisponible
   albert_api:

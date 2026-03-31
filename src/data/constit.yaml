@@ -11,9 +11,8 @@ volumes:
   documents: 8000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://www.conseil-constitutionnel.fr
-    provenance: officielle
     tutoriel: null
   api:
     statut: indisponible
@@ -22,7 +21,7 @@ formats:
   mcp:
     statut: indisponible
   cli:
-    statut: indisponible
+    statut: na
   skill:
     statut: indisponible
   albert_api:

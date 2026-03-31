@@ -7,7 +7,9 @@ const DISPLAYED_FORMATS = FORMAT_KEYS.filter((key) => key !== 'site_web');
 export function SourceCard({ source }: { source: Source }) {
   const availableFormats = DISPLAYED_FORMATS.filter(
     (key) =>
-      key in source.formats && source.formats[key]!.statut !== 'indisponible'
+      key in source.formats &&
+      (source.formats[key]!.statut === 'officiel' ||
+        source.formats[key]!.statut === 'tiers')
   );
 
   return (

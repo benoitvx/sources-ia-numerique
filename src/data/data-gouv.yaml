@@ -11,31 +11,26 @@ volumes:
   documents: 45000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://www.data.gouv.fr
-    provenance: officielle
     tutoriel: null
   api:
-    statut: disponible
+    statut: officiel
     url: https://www.data.gouv.fr/api/1/
-    provenance: officielle
     tutoriel: https://guides.data.gouv.fr/guide-data.gouv.fr/api
   parquet:
-    statut: experimental
+    statut: officiel
     url: https://www.data.gouv.fr
-    provenance: officielle
     tutoriel: null
   mcp:
-    statut: disponible
+    statut: officiel
     url: donnees-ai-gouv/data-gouv
-    provenance: officielle
     tutoriel: null
   cli:
-    statut: indisponible
+    statut: na
   skill:
-    statut: disponible
+    statut: officiel
     url: "@skills-etat/datagouv"
-    provenance: officielle
     tutoriel: null
   albert_api:
     statut: indisponible

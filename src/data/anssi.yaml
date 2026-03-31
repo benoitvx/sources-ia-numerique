@@ -11,9 +11,8 @@ volumes:
   documents: 2000
 formats:
   site_web:
-    statut: disponible
+    statut: officiel
     url: https://cyber.gouv.fr
-    provenance: officielle
     tutoriel: null
   api:
     statut: indisponible
@@ -22,11 +21,10 @@ formats:
   mcp:
     statut: indisponible
   cli:
-    statut: indisponible
+    statut: na
   skill:
-    statut: disponible
+    statut: officiel
     url: "@skills-etat/securite-anssi"
-    provenance: officielle
     tutoriel: null
   albert_api:
     statut: indisponible
