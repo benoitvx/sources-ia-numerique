@@ -2,7 +2,7 @@ const basePath = process.env.PAGES_BASE_PATH || '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: '.next-build',
+  distDir: process.env.CI ? '.next' : '.next-build',
   output: 'export',
   basePath,
   reactStrictMode: true,
