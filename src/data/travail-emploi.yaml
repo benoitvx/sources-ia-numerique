@@ -1,9 +1,10 @@
 id: travail-emploi
 nom: Fiches Travail Emploi
-source: Ministere du Travail, de l'Emploi et de l'Insertion
+source: Ministère du Travail et de l'Emploi
 description: >
-  Fiches pratiques sur le droit du travail, l'emploi, la formation
-  professionnelle et le dialogue social.
+  Fiches pratiques du site travail-emploi.gouv.fr. Contenus relatifs
+  au droit du travail, à l'emploi et aux procédures administratives
+  associées.
 licence: Licence Ouverte v2.0
 mise_a_jour: Hebdomadaire
 derniere_maj: "2026-03-20"
@@ -18,16 +19,18 @@ formats:
     statut: indisponible
   parquet:
     statut: officiel
-    url: https://huggingface.co/datasets/AgentPublic/mediatech-travail-emploi
+    url: https://huggingface.co/datasets/AgentPublic/travail-emploi
     tutoriel: null
   mcp:
     statut: indisponible
   cli:
-    statut: na
+    statut: indisponible
   skill:
     statut: indisponible
   albert_api:
-    statut: indisponible
+    statut: officiel
+    url: https://albert.api.gouv.fr
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
 tags:
   - travail
   - emploi

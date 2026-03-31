@@ -9,7 +9,6 @@ const STATUS_CONFIG: Record<
   tiers: { severity: 'info', label: 'Disponible (tiers)' },
   wip: { severity: 'warning', label: 'En cours' },
   indisponible: { severity: 'error', label: 'Indisponible' },
-  na: { severity: 'new', label: 'N/A' },
 };
 
 export function FormatBadge({ status }: { status: Status }) {

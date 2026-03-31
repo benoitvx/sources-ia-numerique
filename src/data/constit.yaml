@@ -1,9 +1,10 @@
 id: constit
-nom: Deliberations du Conseil constitutionnel
-source: Conseil constitutionnel
+nom: Délibérations du Conseil constitutionnel
+source: Direction de l'information légale et administrative (DILA)
 description: >
-  Decisions et deliberations du Conseil constitutionnel : controle
-  de constitutionnalite, QPC, contentieux electoral.
+  Toutes les décisions du Conseil constitutionnel depuis sa création
+  en 1958. Textes juridiques complets couvrant la jurisprudence
+  constitutionnelle et les contentieux électoraux.
 licence: Licence Ouverte v2.0
 mise_a_jour: Mensuelle
 derniere_maj: "2026-03-10"
@@ -17,15 +18,19 @@ formats:
   api:
     statut: indisponible
   parquet:
-    statut: indisponible
+    statut: officiel
+    url: https://huggingface.co/datasets/AgentPublic/constit
+    tutoriel: null
   mcp:
     statut: indisponible
   cli:
-    statut: na
+    statut: indisponible
   skill:
     statut: indisponible
   albert_api:
-    statut: indisponible
+    statut: officiel
+    url: https://albert.api.gouv.fr
+    tutoriel: https://doc.incubateur.net/alliance/albert-api/guides/collections-documents
 tags:
   - juridique
   - constitution

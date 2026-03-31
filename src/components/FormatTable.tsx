@@ -6,8 +6,6 @@ export function FormatTable({ formats }: { formats: Source['formats'] }) {
   const data = FORMAT_KEYS.filter((key) => key in formats).map((key) => {
     const entry = formats[key]!;
     const hasUrl = 'url' in entry && entry.url;
-    const hasTutoriel = 'tutoriel' in entry && entry.tutoriel;
-
     let provenance = '—';
     if (entry.statut === 'officiel') {
       provenance = 'Officielle';
@@ -31,24 +29,12 @@ export function FormatTable({ formats }: { formats: Source['formats'] }) {
       ) : (
         '—'
       ),
-      hasTutoriel ? (
-        <a
-          key={`tuto-${key}`}
-          href={entry.tutoriel!}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Tutoriel
-        </a>
-      ) : (
-        '—'
-      ),
     ];
   });
 
   return (
     <Table
-      headers={['Format', 'Statut', 'Provenance', 'Lien', 'Tutoriel']}
+      headers={['Format', 'Statut', 'Provenance', 'Lien']}
       data={data}
     />
   );

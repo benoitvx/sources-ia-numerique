@@ -1,9 +1,9 @@
 id: dsfr
-nom: Design Systeme de l'Etat (DSFR)
-source: Direction interministerielle du numerique (DINUM)
+nom: Système de Design de l'État (DSFR)
+source: Service d'Information du Gouvernement (SIG)
 description: >
-  Documentation et composants du Design Systeme de l'Etat francais.
-  Reference pour la creation d'interfaces conformes aux standards de l'Etat.
+  Le système de design de l'État français. Composants, fondamentaux
+  et règles pour les sites et applications de l'administration.
 licence: Licence MIT
 mise_a_jour: Mensuelle
 derniere_maj: "2026-03-01"
@@ -12,7 +12,7 @@ volumes:
 formats:
   site_web:
     statut: officiel
-    url: https://www.systeme-de-design.gouv.fr
+    url: https://www.systeme-de-design.gouv.fr/
     tutoriel: null
   api:
     statut: indisponible
@@ -21,10 +21,10 @@ formats:
   mcp:
     statut: indisponible
   cli:
-    statut: na
+    statut: indisponible
   skill:
     statut: officiel
-    url: "@skills-etat/react-dsfr"
+    url: https://github.com/benoitvx/skills-etat/tree/main/react-dsfr
     tutoriel: null
   albert_api:
     statut: indisponible

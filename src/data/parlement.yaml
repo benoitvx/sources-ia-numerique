@@ -1,0 +1,41 @@
+id: parlement
+nom: Parlement (Assemblée nationale & Sénat)
+source: Assemblée nationale & Sénat
+description: >
+  Données parlementaires : dossiers législatifs, amendements, scrutins,
+  interventions en séance, questions au gouvernement, organes et
+  parlementaires des deux chambres.
+licence: Licence Ouverte v2.0
+mise_a_jour: Quotidienne
+derniere_maj: "2026-03-25"
+volumes:
+  documents: 80000
+formats:
+  site_web:
+    statut: officiel
+    url: https://www.assemblee-nationale.fr
+    tutoriel: null
+  api:
+    statut: tiers
+    url: https://tricoteuses.fr/services/api-parlement
+    tiers_label: Les Tricoteuses
+    tutoriel: null
+  parquet:
+    statut: indisponible
+  mcp:
+    statut: tiers
+    url: https://tricoteuses.fr/services/mcp-parlement
+    tiers_label: Les Tricoteuses
+    tutoriel: null
+  cli:
+    statut: indisponible
+  skill:
+    statut: indisponible
+  albert_api:
+    statut: indisponible
+tags:
+  - parlement
+  - assemblee
+  - senat
+  - legislatif
+  - debats
