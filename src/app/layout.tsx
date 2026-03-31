@@ -35,7 +35,10 @@ export default function RootLayout({
       <head>
         <StartDsfrOnHydration />
         <DsfrHeadBase Link={Link} />
-        <link rel="stylesheet" href="/dsfr/utility/icons/icons.min.css" />
+        <link
+          rel="stylesheet"
+          href={`${process.env.PAGES_BASE_PATH || ''}/dsfr/utility/icons/icons.min.css`}
+        />
       </head>
       <body>
         <DsfrProviderBase
