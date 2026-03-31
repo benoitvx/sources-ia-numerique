@@ -332,23 +332,18 @@ describe('Source data compliance', () => {
 
 ### CI — GitHub Actions
 
-```yaml
-# .github/workflows/ci.yml
-name: CI
-on: [push, pull_request]
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm lint
-      - run: pnpm type-check
-      - run: pnpm test
-      - run: pnpm build
-```
+**`ci.yml`** — Validation sur chaque push et PR : lint, type-check, tests, build.
+
+**`pages.yml`** — Déploiement automatique sur GitHub Pages au push sur `main`. Le build utilise `PAGES_BASE_PATH=/sources-ia-numerique` et publie le dossier `out/`.
+
+### Génération llms.txt
+
+Le script `scripts/generate-llms-txt.ts` génère deux fichiers conformes à [llmstxt.org](https://llmstxt.org/) à partir des fichiers YAML :
+
+- `public/llms.txt` — vue concise (liste des sources et formats disponibles)
+- `public/llms-full.txt` — fiches détaillées (descriptions, URLs, tutoriels, volumes)
+
+Le script s'exécute automatiquement en `prebuild` (avant `pnpm build`). Les fichiers générés sont gitignorés.
 
 ### Couverture
 
