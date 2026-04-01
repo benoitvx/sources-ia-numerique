@@ -1,4 +1,5 @@
 import { Table } from '@codegouvfr/react-dsfr/Table';
+import Link from 'next/link';
 import {
   TABLE_FORMAT_COLUMNS,
   TABLE_FORMAT_LABELS,
@@ -61,13 +62,13 @@ export function SourceTable({ sources }: { sources: Source[] }) {
   ];
 
   const data = sources.map((source) => [
-    <a key={source.id} href={`/sources/${source.id}`}>
+    <Link key={source.id} href={`/sources/${source.id}`}>
       {source.nom}
       <br />
       <span className="fr-text--sm fr-text--mention-grey">
         {source.source}
       </span>
-    </a>,
+    </Link>,
     <span key={`desc-${source.id}`} className="fr-text--sm">
       {source.description}
     </span>,
